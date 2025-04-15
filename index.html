@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HELLO to Video Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: white;
+      overflow: hidden;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      transition: opacity 1s ease;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #helloPage h1 {
+      font-size: 4rem;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .shayari {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      max-width: 500px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #ff4081;
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e91e63;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ff80ab;
+    }
+
+    #videoPage {
+      display: none;
+      background-color: black;
+      position: relative;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .letter {
+      position: absolute;
+      bottom: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 1.1rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    .letter.show {
+      bottom: 30px;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div id="helloPage" class="page">
+    <h1>HELLO</h1>
+    <div class="shayari">
+      Teri muskaan meri pehchaan hai,<br>
+      Tere bina sab kuch anjaan hai,<br>
+      Tujhko mile saari khushiyan is jahan ki,<br>
+      Kyunki tu mere dil ka armaan hai. 💖
+    </div>
+    <button onclick="showVideo()">Aage Badh!</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div id="videoPage" class="page">
+    <video id="myVideo" autoplay loop>
+      <source src="WhatsApp Video 2025-04-15 at 13.47.03_4e7dc105.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div id="birthdayLetter" class="letter">
+      <p>
+        🎉 Happy Birthday meri jaan! 🎉<br><br>
+        1. Aaj ka din sirf tera hai<br>
+        2. Har lamha tu muskuraaye<br>
+        3. Har dua mein tera zikr ho<br>
+        4. Tere chehre pe no kabhi fikr ho<br>
+        5. Teri hansi sabse pyari lage<br>
+        6. Tu har pal khush rahe<br>
+        7. Tera saath hi meri duniya hai<br>
+        8. Har din teri yaadon mein guzarta hai<br>
+        9. Tujhse judaa ho toh saans na aaye<br>
+        10. Tu paas ho toh dil behla jaye<br>
+        11. Tu meri zindagi ka noor hai<br>
+        12. Tu hi mera sukoon aur surur hai<br>
+        13. Har pal tere saath bitana chahta hoon<br>
+        14. Tujhe har baar phir se paana chahta hoon<br>
+        15. Tere bina sab kuch adhura lagta hai<br>
+        16. Tere saath sab kuch pura lagta hai<br>
+        17. Tujhse mohabbat lafzon se pare hai<br>
+        18. Tu meri har dua ka sabse haseen jawab hai<br>
+        19. Tu sirf meri nahi, meri duniya hai<br>
+        20. Happy Birthday once again, meri jaan ❤️
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function showVideo() {
+      document.getElementById('helloPage').style.display = 'none';
+      document.getElementById('videoPage').style.display = 'flex';
+      const video = document.getElementById('myVideo');
+      video.play();
+
+      // Show letter after 11 seconds
+      setTimeout(() => {
+        document.getElementById('birthdayLetter').classList.add('show');
+      }, 11000);
+    }
+  </script>
+
+</body>
+</html>
